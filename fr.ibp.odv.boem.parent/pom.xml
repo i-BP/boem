@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ -  Copyright (c) 2016 I-BP.
+ - All rights reserved. This program and the accompanying materials
+ - are made available under the terms of the Eclipse Public License v1.0
+ - which accompanies this distribution, and is available at
+ - http://www.eclipse.org/legal/epl-v10.html
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+
+
+	<groupId>fr.ibp.odv.boem</groupId>
+	<artifactId>fr.ibp.odv.boem.parent</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<name>Boem Parent</name>
+
+	<properties>
+		<tycho-version>1.0.0</tycho-version>
+		<tycho-extras.version>1.0.0</tycho-extras.version>
+		<maven-checkstyle-version>2.17</maven-checkstyle-version>
+		<maven-resources-version>3.0.2</maven-resources-version>
+		<maven-surefire-version>2.20</maven-surefire-version>
+		<encoding-type>UTF-8</encoding-type>
+		<xtext-version>2.11.0</xtext-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+
+	<modules>
+		<!-- BOEM actifacts -->
+		<module>../plugins/fr.ibp.odv.boem.lib</module>
+		<!-- Releng -->
+		<module>../releng/fr.ibp.odv.boem.updatesite</module>
+		<module>../releng/fr.ibp.odv.boem.feature</module>
+		<!-- Build test plugins -->
+		<module>../plugins/fr.ibp.odv.boem.mm.test</module>
+		<module>../plugins/fr.ibp.odv.boem.tests</module>
+	</modules>
+
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-repository-plugin</artifactId>
+				<version>${tycho-version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<resolver>p2</resolver>
+					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+					<target>
+						<artifact>
+							<groupId>fr.ibp.odv.boem</groupId>
+							<artifactId>fr.ibp.odv.boem.parent</artifactId>
+							<version>${project.version}</version>
+							<classifier>tp/platform</classifier>
+						</artifact>
+					</target>
+				</configuration>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-compiler-plugin</artifactId>
+					<version>${tycho-version}</version>
+					<configuration>
+						<encoding>${encoding-type}</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-source-plugin</artifactId>
+					<version>${tycho-version}</version>
+					<executions>
+						<execution>
+							<id>plugin-source</id>
+							<goals>
+								<goal>plugin-source</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- Force the timespan of each build to use the UTC of the last commit
+					on the repo -->
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-packaging-plugin</artifactId>
+					<version>${tycho-version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.eclipse.tycho.extras</groupId>
+							<artifactId>tycho-buildtimestamp-jgit</artifactId>
+							<version>${tycho-extras.version}</version>
+						</dependency>
+					</dependencies>
+					<configuration>
+						<strictBinIncludes>false</strictBinIncludes>
+						<format>'v'yyyyMMdd-HHmm</format>
+						<timestampProvider>jgit</timestampProvider>
+						<jgit.ignore>
+						</jgit.ignore>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven-resources-version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-surefire-plugin</artifactId>
+					<version>${tycho-version}</version>
+					<configuration>
+						<appArgLine>-Dfile.encoding=${encoding-type}</appArgLine>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>
+

@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Boem test metamodel
+Bundle-SymbolicName: fr.ibp.odv.boem.mm.test;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: I-BP
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: fr.ibp.odv.boem.mm.test.BoemTest,
+ fr.ibp.odv.boem.mm.test.BoemTest.impl,
+ fr.ibp.odv.boem.mm.test.BoemTest.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro
+Bundle-ActivationPolicy: lazy
+

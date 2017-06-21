@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ -  Copyright (c) 2016 I-BP.
+ - All rights reserved. This program and the accompanying materials
+ - are made available under the terms of the Eclipse Public License v1.0
+ - which accompanies this distribution, and is available at
+ - http://www.eclipse.org/legal/epl-v10.html
+-->
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>fr.ibp.odv.boem</groupId>
+		<artifactId>fr.ibp.odv.boem.parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../../fr.ibp.odv.boem.parent</relativePath>
+	</parent>
+
+	<artifactId>fr.ibp.odv.boem.updatesite</artifactId>
+	<name>Boem Update Site</name>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>eclipse-repository</packaging>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>.</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>publisher.properties</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-repository-plugin</artifactId>
+				<configuration>
+					<createArtifactRepository>true</createArtifactRepository>
+					<finalName>${project.groupId}-${unqualifiedVersion}.${buildQualifier}</finalName>
+					<compress>true</compress>
+					<repositoryName>Boem ${unqualifiedVersion}.${buildQualifier}</repositoryName>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>verify</phase>
+						<goals>
+							<goal>resources</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<outputDirectory>${project.build.directory}</outputDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

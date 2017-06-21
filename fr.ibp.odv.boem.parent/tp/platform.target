@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde?>
+<!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
+<target name="BOEM Build target platform" sequenceNumber="1497871406">
+  <locations>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.platform.sdk" version="0.0.0"/>
+      <unit id="org.eclipse.emf.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.xtext.xbase.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.xtend.lib" version="0.0.0"/>
+      <unit id="org.eclipse.xtend.lib.macro" version="0.0.0"/>
+      <unit id="org.eclipse.xtend.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.uml2.uml" version="0.0.0"/>
+      <repository location="http://download.eclipse.org/releases/neon/"/>
+    </location>
+  </locations>
+</target>

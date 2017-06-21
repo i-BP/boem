@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/fr.ibp.odv.boem.feature_1.0.0.qualifier.jar" id="fr.ibp.odv.boem.feature" version="1.0.0.qualifier">
+      <category name="boem"/>
+   </feature>
+   <category-def name="boem" label="boem"/>
+</site>
