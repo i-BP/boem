@@ -36,7 +36,7 @@ import static extension fr.ibp.odv.boem.lib.Boems.*
 
 ### Examples
 All the examples use the following metamodel:
-![BOEM Test Metamodel](doc/img/BoemTestMM.jpg)
+![BOEM Test Metamodel](docs/img/BoemTestMM.jpg)
 
 #### How to create an element
 ```xtend
