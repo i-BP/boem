@@ -1,0 +1,13 @@
+language: java
+dist: trusty
+jdk: openjdk8
+sudo: false
+install: true
+jobs:
+  include:
+  - stage: test
+    script: mvn -f fr.ibp.odv.boem.parent clean verify
+  - stage: head
+    script: echo "Building and deploying Nightly"
+  - stage: release
+    script: echo "Building and deploying Release"
