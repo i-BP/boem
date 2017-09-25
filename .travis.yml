@@ -7,7 +7,6 @@ jobs:
   include:
   - stage: head
     script: mvn -f fr.ibp.odv.boem.parent clean verify -DskipTests
-    before_deploy: "mv releng/fr.ibp.odv.boem.updatesite/target/fr.ibp.odv.boem* releng/fr.ibp.odv.boem.updatesite/target/fr.ibp.odv.boem_{$TRAVIS_TAG}.zip"
     deploy:
       provider: bintray
       file: "bintray.descriptor"
