@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="BOEM Build target platform" sequenceNumber="1497871406">
+<target name="BOEM Build target platform" sequenceNumber="1527084568">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.platform.sdk" version="0.0.0"/>
@@ -11,7 +11,8 @@
       <unit id="org.eclipse.xtend.lib.macro" version="0.0.0"/>
       <unit id="org.eclipse.xtend.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.uml2.uml" version="0.0.0"/>
-      <repository location="http://download.eclipse.org/releases/neon/"/>
+      <unit id="org.junit" version="0.0.0"/>
+      <repository location="http://download.eclipse.org/releases/oxygen/"/>
     </location>
   </locations>
 </target>

@@ -32,7 +32,7 @@
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
-				<version>${xtext-version}</version>
+				<version>${xtend-maven-version}</version>
 				<configuration>
 					<encoding>UTF-8</encoding>
 				</configuration>
