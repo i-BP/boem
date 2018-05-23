@@ -1,6 +1,6 @@
 target "BOEM Build target platform" with requirements, source
 
-location "http://download.eclipse.org/releases/neon/" {
+location "http://download.eclipse.org/releases/oxygen/" {
 	org.eclipse.platform.sdk lazy
 	org.eclipse.emf.feature.group lazy
 	org.eclipse.xtext.xbase.feature.group lazy
@@ -8,4 +8,5 @@ location "http://download.eclipse.org/releases/neon/" {
 	org.eclipse.xtend.lib.macro lazy
 	org.eclipse.xtend.feature.group lazy
 	org.eclipse.uml2.uml lazy
+	org.junit lazy
 }
