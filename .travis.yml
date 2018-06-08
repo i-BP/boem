@@ -5,13 +5,14 @@ sudo: false
 install: true
 jobs:
   include:
-  - stage: head
-    script: mvn -f fr.ibp.odv.boem.parent clean verify -DskipTests
-    deploy:
-      provider: bintray
-      file: "bintray.descriptor"
-      user: "Bintray user"
-      key:
-        secure: oe5GC1R8CUmOUIWOUkmEgFwV8E9CWLwa2Oh0LDqGhG/8qJ47b5AZTUIaCXxu+NpQME6HXiTIX51tiYR6lWZkCVdMusd82cl9xnhZ31JrP3JeS0IQVJekhJnpE14NZrTuFMIXZlecZNMh5vuZNEj7jCOBf3Z4Smdkbcopk/bLovB9B47R9DceIvbb2lgbIWPLimKP2m+3e9MuajN/Bhi/05IyWcSDzlQWANliJwqW0VVAx6Y0s7ubqryX5sXug0EZh1RaOZGGbTZ6IHLyFYomar/C/9nyRLMK0b+W+kCAi4lnDqX+5w77+yeqmmph+YrbyIH+eFpP3X1wMR0n3RdwQ70wNtzPJhHGBbz1MGI4wGxv4D+BJJS9AtBGpMlsYDRHWIEEmls0sQntIYMSnIGN+ih0d1/9lMotSKrA3QHzBO+ssyydxEm+MT2WDBAWm1Ew2M7AvEJAskNA26QjfWyNwTQdl5RkD1dWZqP4Q4B788fUnWh0U9koJvurtKpVVXJdFCcjQWQFmR1pKCBkUEuAY6OHA38OD8GUkqNFvx2/Sx/XU4TPTGe2HIVfQE1ABUE9Eh6j9KLfTopET2nvVyMru+uIDl7rjaNMU79T+xyF/x27wxQTqTQkhT9VYVApl/pXzTUahZwfOTp1KrCqVH4pxtmDtG9vC4N8S02KklhID2k=
-      dry-run: true
-  
+    - stage: test
+      script: 
+      - mvn -f fr.ibp.odv.boem.parent clean test
+    - stage: deploy
+      script: 
+      - mvn -f fr.ibp.odv.boem.parent install
+	  - openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in env.sht.enc -out env.sh -d
+	  - chmod +x env.sh
+	  - ./env.sh
+      - chmod +x pushToBintray.sh
+      - ./pushToBintray.sh boem-nightly nightly releng/fr.ibp.odv.boem.updatesite/target/repository
