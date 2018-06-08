@@ -21,7 +21,6 @@
 	<artifactId>fr.ibp.odv.boem.mm.test</artifactId>
 	<packaging>eclipse-plugin</packaging>
 	<name>Boem MM Test</name>
-	<version>1.0.0-SNAPSHOT</version>
 	
 	<build>
 		<plugins>

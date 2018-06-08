@@ -21,7 +21,6 @@
 	<artifactId>fr.ibp.odv.boem.lib</artifactId>
 	<packaging>eclipse-plugin</packaging>
 	<name>Boem Lib</name>
-	<version>1.0.0-SNAPSHOT</version>
 	
 	<build>
 		<plugins>
