@@ -15,8 +15,8 @@ jobs:
     - "./pushToBintray.sh boem-nightly nightly releng/fr.ibp.odv.boem.updatesite/target/repository"
 env:
   global:
-  BINTRAY_OWNER=i-bp
-  BINTRAY_REPO=boem
+  - BINTRAY_OWNER=i-bp
+  - BINTRAY_REPO=boem
   #BINTRAY_USER=xxx
   - secure: hQbwz5E8dvXtIagri2F8uloKD3Cvos/FxWMFbrXeVtWz4+QwY4nTS69zrh3nX1kbgSbwf9pUncIb+iQIFYSQmnu/eYL1vxL0VctaQjsPEIcKihxTyZvCmeaYsT5qh8i43RlDqViTWI3WK4t9KNEkpQ/s8kaUXxKb37jxaIiBXzmwKYZv5UzsjQXmX8ekCgul0xjolYtVXXU5fenQxzk5G+ivzoX5DBeybz4GrFWhWrHkVsv2fP9ikjEq6hYcdWQaW1DcI4wS1OnVGgwPKf6Wk9ByoYzIt1akyfdYoH+kim74w4CvQe5EY+cYxt9IZkqbWsVoPmj+qjkTR6Nxo+U07H+vLCXhA7JxO24S5l/bx5UQDQwoZazcj51MRCt+W4gy1ydskFTJz38HG3ZdI/UNoD94st3UMHJLIorscj7w6R/i41ZWihO8eDmzm/4FFhM7UgW41Tg818MxEtyke7fRuBnJfPuBXFPwfkT/KAl05mkhNUGDRVFczm4y3fePQRna8LyrSXBJYdqdB1ZVRTGawe3Sh0jnoxZLOyFPD9AfTrThnZKnuWqGq2gpJg/CAjYxK+OEqoUF/xTQRRarEL4e+1EAaEP16L4QPRtCSnkfV8+JmVDjydC57/H8Ps5g4oN2Ua4mGVxjDOZ4KSmjw3T2o6JBismitrbQy8eactIVtPk=
   #BINTRAY_API_KEY=yyy
