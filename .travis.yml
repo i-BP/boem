@@ -6,6 +6,7 @@ install: true
 jobs:
   include:
   - stage: test
+    if: type IN (pull_request)
     script:
     - mvn -f fr.ibp.odv.boem.parent clean test
   - stage: deploy
