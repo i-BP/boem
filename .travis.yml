@@ -5,9 +5,9 @@ sudo: false
 install: true
 jobs:
   include:
-#  - stage: test
-#    script:
-#    - mvn -f fr.ibp.odv.boem.parent clean test
+  - stage: test
+    script:
+    - mvn -f fr.ibp.odv.boem.parent clean test
   - stage: deploy
     script:
     - mvn -f fr.ibp.odv.boem.parent install
