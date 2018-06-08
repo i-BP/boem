@@ -40,8 +40,8 @@
 		<module>../releng/fr.ibp.odv.boem.updatesite</module>
 		<module>../releng/fr.ibp.odv.boem.feature</module>
 		<!-- Build test plugins -->
-		<module>../plugins/fr.ibp.odv.boem.mm.test</module>
-		<module>../plugins/fr.ibp.odv.boem.tests</module>
+		<module>../tests/fr.ibp.odv.boem.mm.test</module>
+		<module>../tests/fr.ibp.odv.boem.tests</module>
 	</modules>
 
 
