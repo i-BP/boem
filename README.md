@@ -12,10 +12,9 @@ It has been created and used in industrial project to ease the creation input fo
 
 ## Installation (work in progress...)
 
-Install the feature BOEM Feature (fr.ibp.odv.boem.feature) from one of the following update site:
+Install the feature BOEM Feature (fr.ibp.odv.boem.feature) from one of the following update sites:
 
-[Update site 1.0.0](TODO "Update site 1.0.0")  
-[Update site HEAD](TODO "Update site HEAD") 
+[1.0.0 Nightly Update Site](https://dl.bintray.com/i-bp/boem/)
 
 ## Usage
 
