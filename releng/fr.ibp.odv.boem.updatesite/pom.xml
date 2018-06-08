@@ -19,7 +19,6 @@
 
 	<artifactId>fr.ibp.odv.boem.updatesite</artifactId>
 	<name>Boem Update Site</name>
-	<version>1.0.0-SNAPSHOT</version>
 	<packaging>eclipse-repository</packaging>
 
 	<build>
