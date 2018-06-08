@@ -5,14 +5,17 @@ sudo: false
 install: true
 jobs:
   include:
-    - stage: test
-      script: 
-      - mvn -f fr.ibp.odv.boem.parent clean test
-    - stage: deploy
-      script: 
-      - mvn -f fr.ibp.odv.boem.parent install
-      - openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in env.sht.enc -out env.sh -d
-      - chmod +x env.sh
-      - ./env.sh
-      - chmod +x pushToBintray.sh
-      - ./pushToBintray.sh boem-nightly nightly releng/fr.ibp.odv.boem.updatesite/target/repository
+  - stage: test
+    script:
+    - mvn -f fr.ibp.odv.boem.parent clean test
+  - stage: deploy
+    script:
+    - mvn -f fr.ibp.odv.boem.parent install
+    - chmod +x pushToBintray.sh
+    - "./pushToBintray.sh boem-nightly nightly releng/fr.ibp.odv.boem.updatesite/target/repository"
+env:
+  global:
+  - secure: hQbwz5E8dvXtIagri2F8uloKD3Cvos/FxWMFbrXeVtWz4+QwY4nTS69zrh3nX1kbgSbwf9pUncIb+iQIFYSQmnu/eYL1vxL0VctaQjsPEIcKihxTyZvCmeaYsT5qh8i43RlDqViTWI3WK4t9KNEkpQ/s8kaUXxKb37jxaIiBXzmwKYZv5UzsjQXmX8ekCgul0xjolYtVXXU5fenQxzk5G+ivzoX5DBeybz4GrFWhWrHkVsv2fP9ikjEq6hYcdWQaW1DcI4wS1OnVGgwPKf6Wk9ByoYzIt1akyfdYoH+kim74w4CvQe5EY+cYxt9IZkqbWsVoPmj+qjkTR6Nxo+U07H+vLCXhA7JxO24S5l/bx5UQDQwoZazcj51MRCt+W4gy1ydskFTJz38HG3ZdI/UNoD94st3UMHJLIorscj7w6R/i41ZWihO8eDmzm/4FFhM7UgW41Tg818MxEtyke7fRuBnJfPuBXFPwfkT/KAl05mkhNUGDRVFczm4y3fePQRna8LyrSXBJYdqdB1ZVRTGawe3Sh0jnoxZLOyFPD9AfTrThnZKnuWqGq2gpJg/CAjYxK+OEqoUF/xTQRRarEL4e+1EAaEP16L4QPRtCSnkfV8+JmVDjydC57/H8Ps5g4oN2Ua4mGVxjDOZ4KSmjw3T2o6JBismitrbQy8eactIVtPk=
+  - secure: wYu6uTC2PDjAPPGF2uGHCFIoywDuJJkUZ6yNMjA6+C7uop31odSO6D11l5MwzI3nKXmDDOU/LnPHpmv7nVm0iaZPQ+/ZV1kURR5N2hzKbywxTQTcap5njbEtsTG5qL6CzqIm0YY+0HC34hlExcOZdQAIlEy6ZIpLrIttzhDKv1WtrU0JvHEUupO2dUsubGEhlB1+UNPWsKMJamsRhRzGwwttXvhdIC/+sU+Iuqbj6qdC1VPKWrCIoPPe4vMiHkeDYwvWC0MH/VYJP50KshBCvudD4DjlsxhCRBJ5CcHWXUzLLqARWBiHremYOQzPQafe3htASqt4swXNNvhhc8tkD72A1/MHeDHgPq8CwLNGo6KXGZ41fAjyblNi2mtKMnZ2sYeM5p9ZGXnSt0BmfycZKSiEp3ZhuE5DsvSWAjHlD9KGI+I492+bj0FIZD2reZOzRQ+gf+Zm9UwJsvxWIRuyKfSILy4cGOK9UO48jNXtiN6MZ0PYRsX7BfSpOpFHpnX+V88Yxr33CqQ2dwm1qtdUsbBbRsxOdSRLCf+7P3RVk16+rBciYOYE1j+LYq6BVWplDiQx0IVg7rU8c9kJJolaBFl2zVZE+rlULVI+DLexLNqFbh6s5rUbmMF7LZLqNhyZL6OpcLsDHeiZGZwkJwbhZE8rVF1EGbFIpL9l+Ib+GM4=
+  - secure: p2JHXR6hyZ2FfL1jH/ZJA5dZHyTt3WEzArxjJC6V2/QF689cKzSrkEOUzm3Q6n62jEVd1XjQEJNmx/1Y0XuceZ8MBw0gWd3qSdqkUMY8H83JIdJLqYC+nlUn2VqYYZ2VgiNqYJQGWS82sEy0w3TI6woIRjHfOAG+LsfAbi9dyI4YUTThPyYqCxQ/l/osMTKxqV8aqx+UhEPj+xrCSu110d091PvfWC2cVK9PJGMaM11svBQDXUDCskIJc40EH+Jh/Cv14L5OO4ISC3i40BdQaP1ZlRBO2v6UykmjPP90f2CjU+tA7EF5L3Dc4QCDYbj96BvgMVBXA/0AxTpqTc3PYp/aTCFTwBIlLLPf+c4TRI9YvWhjRuI3bUTulFmXBxOotyoZKaMLm3oYsbCTSuF9BLqFS28W9VHy6JF0fwiOJzQOLB7fQHOCdgkXKfcVB7cxSeCn0DwPOQup0L6IGXkgPDXcNGpBZAfkrGD4a/4WoAR22dWs91GP4OmRds33O49zAiUvWggnG2ltu1PPv5hB5wcIpHJGYI/loW4i1EooNMMZ4A1u2CGRGDfZhACi/FsDFIXYQ3dmPiVvDvRvLOOHv4XlDeAu6H6/BueQPwRRZvExMakGcij5uxFi5h2HaHsgorr3nup5KK/30hUK26LNGKSPYAxR5aZoLtyp3WXF7/U=
+  - secure: lDHhgtkYkT7MZlB9oX4F5TKpKIP4hqYqRd0PHgHyh7aBgz8oRNLCPL6yBTeq0C7ci4T1PeZkhrBx4kq7mOWZxWwNSkzB0oq/FVDxWEOtRBocNtmDnzMKiMYpPI4BNkic/NYKuIFnGckvMPERFlAo4EODaP6UVeOQR6BUSnaisNG+hPIcLcId/50NvJxX914U7DaOsy6dK9/i1pYq0+Gy0Fp4dTqEO3X1yFrZ8UvAY1CJI0ejASG0SE3gETRNQDFG33fOdbaXTnsWs6xa+DkQ8NYuxKgyxmjYpI+yEQMOlZdPezVJPOHxRRsoFSa7ruFkwMNjvknv8VOAMgl9V5G53+kUuvZuZMwj1owPtDlbHI9ZNktY3sTql9wqvB9cHYdN0aSsZ5xAm9MQW85Ms24hGJpZvMjOtNzrvPk6n2MHRO0XKORSzxn/jYSMUHt7AKSjMr6SjAJq1u/bLip8qPwFk5HoleLjpHWKuz/jnYvhIH5lrUp+nUTH4O1ikWV6c0x1z6KEJWCoxosnEcIRWCSYj/g5+sRFtyes/goJXdVZbSRDaPscCmAdTc0ZtRXakuXDovZlSdyp4zFfpr5It4rqYO4O+Z88CdAhdYkSY9MWo872FQBfVPYip5rXK6Zye0WiXHHPZnh785sXI4Ka3Doynv39on1AEK3Q85wtqxBYSoE=
