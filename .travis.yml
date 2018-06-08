@@ -9,6 +9,7 @@ jobs:
     script:
     - mvn -f fr.ibp.odv.boem.parent clean test
   - stage: deploy
+    if: branch = master
     script:
     - mvn -f fr.ibp.odv.boem.parent install
     - chmod +x pushToBintray.sh
