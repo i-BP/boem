@@ -87,11 +87,11 @@ class APITestContainmentRef extends AbstractAPITest {
 			]
 
 			// Adds several children at once
-			childrenNodeA += #{Node.build [
+			childrenNodeA += #[Node.build [
 				name = "ANodeName1"
 			], Node.build [
 				name = "ANodeName2"
-			]}
+			]]
 		].buildTree
 
 		assertNoAdapterLeft(model.root)
