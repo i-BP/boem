@@ -10,7 +10,7 @@ The aim of the BOEM library is to provide an API that eases the creation of EMF 
 
 It has been created and used in industrial project to ease the creation input for JUnit tests on the metamodel and business rules.
 
-## Installation (work in progress...)
+## Installation
 
 Install the feature BOEM Feature (fr.ibp.odv.boem.feature) from one of the following update sites:
 
