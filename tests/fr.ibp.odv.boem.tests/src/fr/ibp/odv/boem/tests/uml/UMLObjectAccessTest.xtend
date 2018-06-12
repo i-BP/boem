@@ -42,11 +42,11 @@ class UMLObjectAccessTest extends AbstractUMLTest {
 			]
 		].buildTree
 
-		assertEquals("myInterface", modelAccessor.access(Interface, "umlInterface").name)
-		assertEquals(modelAccessor.access(Interface, "umlInterface"), ("umlInterface" => modelAccessor))
+		assertEquals("myInterface", modelAccessor.access(Interface, "umlInterface").name) // Verbose accessor syntax (with cast)
+		assertEquals(modelAccessor.access(Interface, "umlInterface"), ("umlInterface" => modelAccessor)) // Direct accessor syntax (wihout cast)
 
-		assertEquals("myOperation", modelAccessor.access(Operation, "umlOperation").name)
-		assertEquals(modelAccessor.access(Operation, "umlOperation"), ("umlOperation" => modelAccessor))
+		assertEquals("myOperation", modelAccessor.access(Operation, "umlOperation").name) // Verbose accessor syntax (with cast)
+		assertEquals(modelAccessor.access(Operation, "umlOperation"), ("umlOperation" => modelAccessor)) // Direct accessor syntax (wihout cast)
 	}
 
 }
