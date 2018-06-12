@@ -241,6 +241,10 @@ assertEquals("NameB2", model.access(B, "B").name)
 assertEquals("NameC2", model.access(C, "C").name)
 ```
 
+## Presentations
+
+* [Eclipse Con France 2018](https://adaussy.github.io/boem-eclipseconfrancefrance2018/#/)
+
 ## Contributing
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
@@ -251,3 +255,4 @@ assertEquals("NameC2", model.access(C, "C").name)
 ## License
 [Eclipse Public License - v 1.0](https://www.eclipse.org/legal/epl-v10.html)  
 [Contribution guidelines for this project](docs/CONTRIBUTING.md)
+
