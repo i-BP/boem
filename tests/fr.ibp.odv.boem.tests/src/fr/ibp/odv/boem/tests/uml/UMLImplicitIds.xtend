@@ -28,7 +28,7 @@ class UMLImplicitIds extends AbstractUMLTest {
 	extension BoemFactory factory = new BoemFactory(UMLPackage.eINSTANCE) //
 	.registerIdProvider([
 		if (it instanceof NamedElement) {
-			return it.name
+			return it.name // name is the implicit ID
 		}
 		return null
 	])
@@ -39,17 +39,17 @@ class UMLImplicitIds extends AbstractUMLTest {
 			name = "myUmlModel"
 			packagedElements += #{
 				Interface.build [
-					name = "it1"
+					name = "it1" // ID = "it1"
 				],
 				Interface.build [
-					name = "it2"
+					name = "it2" // ID = "it2"
 					generalizations += Generalization.build [
-						specific = Interface << "it2"
-						general = Interface << "it3"
+						specific = Interface << "it2" // access "it2"
+						general = Interface << "it3" // access "it3"
 					]
 				],
 				Interface.build [
-					name = "it3"
+					name = "it3"  // ID = "it3"
 				]
 			}
 		].buildTree

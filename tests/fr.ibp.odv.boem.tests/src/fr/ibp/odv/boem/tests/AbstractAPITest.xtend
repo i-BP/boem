@@ -26,7 +26,7 @@ import static org.junit.Assert.*
 abstract class AbstractAPITest {
 	
 	/**
-	 * Checks that there is not adapter lest in the model (some adapters are added while building the model)
+	 * Checks that there is no adapter left in the model (some adapters are added while building the model)
 	 */
 	protected def assertNoAdapterLeft(EObject eObject) {
 		assertTrue(eObject.eAdapters.isEmpty)

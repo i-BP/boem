@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.InternalEObject
 import static extension fr.ibp.odv.boem.lib.Boems.*
 
 /**
- * A BOEM factory is the main object to build your EMF Model. It can be used as followed
+ * A BOEM factory is the main object to build your EMF Model. It can be used as follows
  * <p>
  * <pre>
  * <code>
@@ -57,7 +57,7 @@ class BoemFactory {
 	public static val String INTERNAL_URI_SCHEME = "boemuri";
 
 	/**
-	 * Map that will hold all the rules to create an EObject. It maps Interface to the supplier of EObject
+	 * Map that will hold all the rules to create an EObject. It maps an interface to the supplier of EObject
 	 */
 	val Map<Class<? extends EObject>, Supplier<? extends EObject>> rules = newHashMap();
 
@@ -98,6 +98,7 @@ class BoemFactory {
 	 * Builds an {@link EObject} and initializes it
 	 * @param type the type of EObject to build
 	 * @param initializer the consumer in charge of initializing the given {@link EObject}
+	 * @return the built {@link EObject}
 	 */
 	def <T extends EObject> T build(Class<T> type, (T)=>void initializer) {
 		val factory = rules.get(type);
@@ -119,6 +120,7 @@ class BoemFactory {
 	/**
 	 * Builds an {@link EObject}, but does not initialize the newly created object.
 	 * @param type the type of EObject to build
+	 * @return the built {@link EObject}
 	 */
 	def <T extends EObject> T build(Class<T> type) {
 		return build(type, null)
@@ -139,6 +141,7 @@ class BoemFactory {
 	 * @param type the type of proxy to build (the interface of the EClass to build)
 	 * @param id the id of the target object
 	 * @throw IllegalArgumentException if there is no target matching the given id when the method {@link Boems#buildTree(EObject, org.eclipse.emf.ecore.resource.ResourceSet, URI)} or {@link Boems#buildTree(EObject)} is called.
+	 * @return the referenced {@link EObject}
 	 */
 	def <T extends EObject> T buildRef(Class<T> type, String id) {
 		val factory = rules.get(type);
@@ -155,6 +158,7 @@ class BoemFactory {
 	 * Creates a new {@link EObject} and registers an id against it.
 	 * @param type the type of the {@link EObject}
 	 * @param id the id by which the newly created {@link EObject} can be retrieved
+	 * @return the built {@link EObject}
 	 */
 	def <T extends EObject> T <<(Class<T> type, String id) {
 		val factory = rules.get(type);
