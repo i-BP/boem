@@ -11,8 +11,8 @@ jobs:
   - stage: deploy
     script:
     - mvn -f fr.ibp.odv.boem.parent install
-    - chmod +x pushToBintray.sh
-    - "./pushToBintray.sh boem-nightly nightly releng/fr.ibp.odv.boem.updatesite/target/repository"
+#    - chmod +x pushToBintray.sh
+#   - "./pushToBintray.sh boem-nightly nightly releng/fr.ibp.odv.boem.updatesite/target/repository"
 env:
   global:
   - BINTRAY_OWNER=i-bp
