@@ -28,7 +28,7 @@
 		<maven-resources-version>3.1.0</maven-resources-version>
 		<maven-surefire-version>2.21.0</maven-surefire-version>
 		<encoding-type>UTF-8</encoding-type>
-		<xtend-maven-version>2.13.0</xtend-maven-version>
+		<xtend-maven-version>2.25.0</xtend-maven-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
